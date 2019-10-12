@@ -30,7 +30,7 @@
                     </h1>
                         <!-- Checkout button -->
                     <h2><span class="badge badge-success badge-pill" id="Checkout">Checkout</span></h2>
-                    <h4><span class="badge badge-danger badge-pill" id="DeleteAll">Delete All</span></h4>
+                    <a href="#" class="badge badge-danger badge-pill" onclick="reload()">Delete All</a>
                     <p id="cartGuide">Add products to your Cart</p>
                     <ul id="cart" class="list-group list-group-flush"> </ul>
                 </div>
@@ -52,6 +52,8 @@
                 this.price = _price
             }
         }
+
+        
 
         // Create products (will be a part of DB later)
         var products = new Array(6);
@@ -79,6 +81,7 @@
         $(".cartButton").click(function(event) {
             var id = event.target.id;
             var orderedProduct = products[id-1];
+
 
             // Get rid of 'nothing in the cart'
             if(document.getElementById("cart").childElementCount == 0){
