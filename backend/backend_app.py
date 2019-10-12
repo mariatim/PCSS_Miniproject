@@ -1,5 +1,5 @@
 from flask import Flask, request
-from backend.Json import Json
+from Json import Json
 import random
 
 app = Flask(__name__)
