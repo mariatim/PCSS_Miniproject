@@ -17,13 +17,22 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4" id="price">You have nothing in your cart!</h1>
-            <p id="cartGuide">You can order products by clicking on the Add to cart buttons.</p>
-            <ul id="cart" class="list-group list-group-flush">  </ul>
+        <div class="row">
+            <div class="col">
+                One of three columns
+            </div>
+            <div class="col">
+                <div class="jumbotron" id="shoppingcart">
+                    <h1 class="display-4" id="price">Such empty!</h1>
+                    <p id="cartGuide">Add products to your Cart</p>
+                    <ul id="cart" class="list-group list-group-flush"> </ul>
+                </div>
+            </div>
         </div>
-        <div class="row" id="fillHere">   </div>
+
+        <div class="row" id="fillHere"> </div>
     </div>
+
     
     <!-- JS/jQuery part -->
     <script>
