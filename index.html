@@ -82,16 +82,17 @@
             $("#price").html(processedValue + orderedProduct.price + " kr.");
 
             var settings = {
-              "async": true,
-              "crossDomain": true,
-              "url": "http://127.0.0.1:5000/",
-              "method": "GET"
-            }
+  "async": true,
+  "crossDomain": true,
+  "url": "http://127.0.0.1:5000/",
+  "method": "GET"
+}
 
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
 
+})
 
     </script>
 </body>
