@@ -16,4 +16,4 @@ def put_order():
     id = request.json['id']
     return "Putting order with id {}".format(id)
 
-app.run(debug=True)
+app.run(debug=True, port=5000)
