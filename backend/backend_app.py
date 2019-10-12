@@ -1,5 +1,6 @@
 from flask import Flask, request
 import random
+import json
 from backend.Json import Json
 
 app = Flask(__name__)
@@ -28,7 +29,7 @@ def get_product():
 @app.route('/get/allproducts/', methods=['GET'])
 def get_all_products():
     products = populate_dummy_data()
-    return products
+    return json.loads(products)
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
 def put_order():
