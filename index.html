@@ -12,8 +12,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
-        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -24,6 +24,7 @@
         </div>
         <div class="row" id="fillHere">   </div>
     </div>
+    <a class='btn btn-primary' href="/script">Run server stuff</a>
     
     <!-- JS/jQuery part -->
     <script>
@@ -79,6 +80,16 @@
             var initPriceElementValue = $("#price").html();
             var processedValue = parseFloat(initPriceElementValue.replace(" kr.", ""));
             $("#price").html(processedValue + orderedProduct.price + " kr.");
+
+            var postData = { "id": "10" };
+            var processedData = $.ajax({
+                type: 'POST',
+                crossDomain: true,
+                dataType: 'jsonp',
+                url: '127.0.0.1:5000/',
+                success: function (jsondata) {
+                }
+            }); 
         })
         
     </script>
