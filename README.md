@@ -22,3 +22,6 @@ To run the backend app:
   Endpoints available:
   * /get/product/<int:id>
   * /put/order/<int:id>
+
+  *Postman project to test the endpoints:*
+  https://www.getpostman.com/collections/61df949256f83b14fc7a
