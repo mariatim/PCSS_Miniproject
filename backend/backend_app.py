@@ -14,7 +14,7 @@ def get_product():
     id = request.json['id']
     randomPos = random.randint(0, 5)
     products[randomPos].setId(id)
-    return products[id].toJson()
+    return products[randomPos].toJson()
 
 @app.route('/get/allproducts/', methods=['GET'])
 def get_all_products():
