@@ -24,39 +24,19 @@
         </div>
         <div class="row" id="fillHere">   </div>
     </div>
-    <a class='btn btn-primary' href="#">Run server stuff</a>
+    <a class='btn btn-primary' href="#" id="serverRequest">Run server stuff</a>
 
     <!-- JS/jQuery part -->
     <script>
         // Define a Product (will be a part of the back-end later)
         class Product {
-            constructor(_id, _price) {
+            constructor(_id, _name, _price, _description) {
                 this.id = _id;
-                this.price = _price
+                this.name = _name;
+                this.price = _price;
+                this.description = _description;
             }
         }
-
-        // Create products (will be a part of DB later)
-        var products = new Array(5);
-        for (let i = 0; i < products.length; i++) {
-            products[i] = new Product(i+1, (i+1)*100)
-        }
-
-        // Fill up the HTML
-        products.forEach(element => {
-            $("#fillHere").append(`<div class="col-lg-4 col-md-6 col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Festival ` + element.id + `</h5>
-                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat quo necessitatibus,
-                            totam consequuntur quaerat velit cum nihil molestiae minus tempora dolor explicabo, sapiente nobis
-                            asperiores. Voluptate aperiam iusto fugiat deserunt?</p>
-                        <b style="float: right;">` + element.price + ` kr.</b>
-                        <a href="#" class="btn btn-primary cartButton" id="` + element.id + `">Add to cart</a>
-                    </div>
-                </div>
-            </div>`)
-        });
 
         // When the Add to cart button is clicked
         $(".cartButton").click(function(event) {
@@ -80,19 +60,42 @@
             var initPriceElementValue = $("#price").html();
             var processedValue = parseFloat(initPriceElementValue.replace(" kr.", ""));
             $("#price").html(processedValue + orderedProduct.price + " kr.");
+        })
 
+        $("#serverRequest").click(function(){
             var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://127.0.0.1:5000/",
-  "method": "GET"
-}
+                "async": true,
+                "crossDomain": true,
+                "url": "http://127.0.0.1:5000/get/allproducts/",
+                "dataType": 'jsonp',
+                "method": "GET"
+            }
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+            $.ajax(settings).done(function (response) {
+                // Fill up the HTML
+                console.log("hi");
+                /*response = response.split(";");
+                
+                response.forEach(element => {
+                    products.push(JSON.parse(element));
+                })
 
-})
+
+                products.forEach(element => {
+                    $("#fillHere").append(`<div class="col-lg-4 col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Festival ` + element.id + `</h5>
+                            <p class="card-text">` + element.description + `</p>
+                            <b style="float: right;">` + element.price + ` kr.</b>
+                            <a href="#" class="btn btn-primary cartButton" id="` + element.id + `">Add to cart</a>
+                        </div>
+                    </div>
+                </div>`)
+                });*/
+            });
+        })
+
 
     </script>
 </body>
