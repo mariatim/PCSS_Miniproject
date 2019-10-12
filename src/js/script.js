@@ -15,4 +15,7 @@ function cancel (element) {
     }
 }
 
+function reload(){
+    window.location.reload();
+}
 
