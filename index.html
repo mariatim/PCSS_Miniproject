@@ -19,19 +19,24 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                One of three columns
+                <img src="img/festival.jpg" title="Photo by Danny Howe on Unsplash" class="img-fluid">
+                
             </div>
             <div class="col">
                 <div class="jumbotron" id="shoppingcart">
-                    <h1 class="display-4" id="price">Such empty!</h1>
+                    <h1 class="display-4" id="price">Such empty!
+                    </h1>
+                    <h2><span class="badge badge-success badge-pill" id="Checkout">Check Out</span></h2>
                     <p id="cartGuide">Add products to your Cart</p>
                     <ul id="cart" class="list-group list-group-flush"> </ul>
                 </div>
-            </div>
+            </div>  
         </div>
 
         <div class="row" id="fillHere"> </div>
     </div>
+
+    
 
     
     <!-- JS/jQuery part -->
@@ -83,6 +88,7 @@
                 Festival ` + orderedProduct.id + `
                 <span class="badge badge-primary badge-pill ">` + orderedProduct.price + ` kr.</span>
                 <span class="badge badge-danger badge-pill Cartcancel">` + "Cancel" + `</span>
+                
             </li>`);
             
 
