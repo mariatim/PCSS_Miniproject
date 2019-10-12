@@ -13,7 +13,7 @@ To install Flask with pip:
   run
   **python -m pip install flask**
 
-To run the backend app:
+To start the server:
   run
   **python backend_app.py**
 
