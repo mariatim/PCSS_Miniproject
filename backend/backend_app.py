@@ -23,7 +23,7 @@ def get_all_products():
     products[2] = Json(2, 'MegaFest', 2100, 'If you like woodcarving, this festival is for you!')
     products[3] = Json(3, 'GigaFest', 1099, 'If you like rock climbing, this festival is for you!')
     products[4] = Json(4, 'GrandFest', 3000, 'If you like electronic music, this festival is for you!')
-    products[4] = Json(4, 'MegaloFest', 990, 'If you like aliens, this festival is for you!')
+    products[5] = Json(4, 'MegaloFest', 990, 'If you like aliens, this festival is for you!')
     return products
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
