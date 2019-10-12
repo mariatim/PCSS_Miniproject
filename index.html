@@ -78,12 +78,12 @@
             </li>`;
 
             
+            
            
             // Update price
             var initPriceElementValue = document.getElementById("price").innerHTML;
             var processedValue = parseFloat(initPriceElementValue.replace(" kr.", ""));
             var output = processedValue + orderedProduct.price + " kr.";
-            console.log(output)
             document.getElementById("price").innerHTML = output;
         })
         
