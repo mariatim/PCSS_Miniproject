@@ -20,8 +20,8 @@ To start the server:
   Runs locally on http://127.0.0.1:5000
 
   Endpoints available:
-  * /get/product/<int:id>
-  * /put/order/<int:id>
+  * /get/product/
+  * /put/order/
 
   *Postman project to test the endpoints:*
   https://www.getpostman.com/collections/61df949256f83b14fc7a
