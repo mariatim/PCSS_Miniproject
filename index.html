@@ -36,7 +36,7 @@
         }
 
         // Create products (will be a part of DB later)
-        var products = new Array(5);
+        var products = new Array(6);
         for (let i = 0; i < products.length; i++) {
             products[i] = new Product(i+1, (i+1)*100)
         }
@@ -68,12 +68,14 @@
                 $("#price").html("0 kr.");
             }
 
-            // Append to the list
+            // Append to the list 
             $("#cart").append(
             `<li class="list-group-item d-flex justify-content-between align-items-center">
                 Festival ` + orderedProduct.id + `
                 <span class="badge badge-primary badge-pill">` + orderedProduct.price + ` kr.</span>
+                <span class="badge badge-danger badge-pill">` + "Cancel" + `</span>
             </li>`);
+            
 
             // Update price
             var initPriceElementValue = $("#price").html();
