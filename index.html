@@ -24,8 +24,8 @@
         </div>
         <div class="row" id="fillHere">   </div>
     </div>
-    <a class='btn btn-primary' href="/script">Run server stuff</a>
-    
+    <a class='btn btn-primary' href="#">Run server stuff</a>
+
     <!-- JS/jQuery part -->
     <script>
         // Define a Product (will be a part of the back-end later)
@@ -81,17 +81,18 @@
             var processedValue = parseFloat(initPriceElementValue.replace(" kr.", ""));
             $("#price").html(processedValue + orderedProduct.price + " kr.");
 
-            var postData = { "id": "10" };
-            var processedData = $.ajax({
-                type: 'POST',
-                crossDomain: true,
-                dataType: 'jsonp',
-                url: '127.0.0.1:5000/',
-                success: function (jsondata) {
-                }
-            }); 
-        })
-        
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "http://127.0.0.1:5000/",
+              "method": "GET"
+            }
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
     </script>
 </body>
 </html>

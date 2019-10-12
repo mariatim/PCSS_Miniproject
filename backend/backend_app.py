@@ -16,4 +16,12 @@ def put_order():
     id = request.json['id']
     return "Putting order with id {}".format(id)
 
-app.run(debug=True, port=5000)
+@app.after_request
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8000')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  response.headers.add('Access-Control-Allow-Credentials', 'true')
+  return response
+
+app.run(debug=True)
