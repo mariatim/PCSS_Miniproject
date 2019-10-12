@@ -1,13 +1,17 @@
 import json
+from json import JSONEncoder
 
 
-class Json:
+class Product(JSONEncoder):
 
     def __init__(self, _id, _name, _price, _description):
         self.id = _id
         self.name = _name
         self.price = _price
-        self.description = _description
+        self.description = _description__dict__
+
+    def default(self, o):
+        return o.
 
     def setId(self, _id):
         self.id = _id
