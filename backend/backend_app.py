@@ -29,7 +29,7 @@ def get_product():
 @app.route('/get/allproducts/', methods=['GET'])
 def get_all_products():
     products = populate_dummy_data()
-    return json.loads(products)
+    return json.dumps(products)
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
 def put_order():
