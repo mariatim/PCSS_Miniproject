@@ -8,7 +8,7 @@ class Product():
         self.id = _id
         self.name = _name
         self.price = _price
-        self.description = _description__dict__
+        self.description = _description
 
     def setId(self, _id):
         self.id = _id

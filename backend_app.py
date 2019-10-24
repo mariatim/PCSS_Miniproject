@@ -2,7 +2,7 @@ from flask import Flask, request
 import random
 import json
 
-from backend.product import Product
+from product import Product
 
 app = Flask(__name__)
 
@@ -30,7 +30,8 @@ def get_product():
 @app.route('/get/allproducts/', methods=['GET'])
 def get_all_products():
     products = populate_dummy_data()
-    return json.dumps(products)
+    response = json.dumps([p.toJson() for p in products])
+    return "getAllCallback(" + response + ")"
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
 def put_order():
@@ -39,7 +40,7 @@ def put_order():
 
 @app.after_request
 def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8000')
+  response.headers.add('Access-Control-Allow-Origin', '*')
   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   response.headers.add('Access-Control-Allow-Credentials', 'true')

@@ -28,6 +28,8 @@
 
     <!-- JS/jQuery part -->
     <script>
+        var products = [];
+
         // Define a Product (will be a part of the back-end later)
         class Product {
             constructor(_id, _name, _price, _description) {
@@ -62,27 +64,32 @@
             $("#price").html(processedValue + orderedProduct.price + " kr.");
         })
 
-        $("#serverRequest").click(function(){
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "http://127.0.0.1:5000/get/allproducts/",
-                "dataType": 'jsonp',
-                "method": "GET"
-            }
+        // Server request to load all events
+        $("document").ready(function(){
+            $.ajax({
+                async: true,
+                crossDomain: true,
+                url: "http://127.0.0.1:5000/get/allproducts",
+                dataType: 'jsonp',
+                method: "GET",
+                error: function(xhr, ajaxOptions, thrownError){
+                    console.log(xhr.status);
+                    if (xhr.status != 200)
+                        console.log(thrownError);
+                }
+            })
+        })
 
-            $.ajax(settings).done(function (response) {
-                // Fill up the HTML
-                console.log("hi");
-                /*response = response.split(";");
-                
-                response.forEach(element => {
-                    products.push(JSON.parse(element));
-                })
+        // Callback for loading all events
+        function getAllCallback(response) {
+            response.forEach(element => {
+                products.push(JSON.parse(element));
+            })
 
-
-                products.forEach(element => {
-                    $("#fillHere").append(`<div class="col-lg-4 col-md-6 col-12">
+            // Fill the HTML
+            products.forEach(element => {
+                $("#fillHere").append(
+                `<div class="col-lg-4 col-md-6 col-12">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Festival ` + element.id + `</h5>
@@ -91,10 +98,9 @@
                             <a href="#" class="btn btn-primary cartButton" id="` + element.id + `">Add to cart</a>
                         </div>
                     </div>
-                </div>`)
-                });*/
+                </div>`);
             });
-        })
+        }
 
 
     </script>
