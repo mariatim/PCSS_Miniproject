@@ -12,20 +12,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="src/js/script.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4" id="price">You have nothing in your cart!</h1>
-            <p id="cartGuide">You can order products by clicking on the Add to cart buttons.</p>
-            <ul id="cart" class="list-group list-group-flush">  </ul>
+        <div class="row">
+                <!-- Jumbotron for the main image -->
+            <div class="col">
+                <img src="img/festival.jpg" title="Photo by Danny Howe on Unsplash" class="img-fluid">   
+            </div>
+            <div class="col">
+                <div class="jumbotron" id="shoppingcart">
+                        <!-- jumbotron for the cart -->
+                    <h1 class="display-4" id="price">Such empty!
+                    </h1>
+                        <!-- Checkout button -->
+                    <h2><span class="badge badge-success badge-pill" id="Checkout">Checkout</span></h2>
+                    <a href="#" class="badge badge-danger badge-pill" onclick="reload()">Delete All</a>
+                    <p id="cartGuide">Add products to your Cart</p>
+                    <ul id="cart" class="list-group list-group-flush"> </ul>
+                </div>
+            </div>  
         </div>
-        <div class="row" id="fillHere">   </div>
-    </div>
-    <a class='btn btn-primary' href="#" id="serverRequest">Run server stuff</a>
 
+        <div class="row" id="fillHere"> </div>
+    </div>
+
+    
+
+    
     <!-- JS/jQuery part -->
     <script>
         var products = [];
@@ -45,23 +62,29 @@
             var id = event.target.id;
             var orderedProduct = products[id-1];
 
+
             // Get rid of 'nothing in the cart'
-            if($("#cart").children().length == 0){
-                $("#cartGuide").toggleClass("invisible");
-                $("#price").html("0 kr.");
+            if(document.getElementById("cart").childElementCount == 0){
+                document.getElementById("cartGuide").classList.toggle("invisible");
+                document.getElementById("price").innerHTML = "0 kr.";
             }
 
             // Append to the list
-            $("#cart").append(
+            document.getElementById("cart").innerHTML +=
             `<li class="list-group-item d-flex justify-content-between align-items-center">
                 Festival ` + orderedProduct.id + `
-                <span class="badge badge-primary badge-pill">` + orderedProduct.price + ` kr.</span>
-            </li>`);
+                <span class="badge badge-primary badge-pill ">` + orderedProduct.price + ` kr.</span>
+                <a href="#" class="badge badge-danger badge-pill" onClick=cancel(this)>` + "Cancel" + `</a>
+            </li>`;
 
+            
+            
+           
             // Update price
-            var initPriceElementValue = $("#price").html();
+            var initPriceElementValue = document.getElementById("price").innerHTML;
             var processedValue = parseFloat(initPriceElementValue.replace(" kr.", ""));
-            $("#price").html(processedValue + orderedProduct.price + " kr.");
+            var output = processedValue + orderedProduct.price + " kr.";
+            document.getElementById("price").innerHTML = output;
         })
 
         // Server request to load all events
