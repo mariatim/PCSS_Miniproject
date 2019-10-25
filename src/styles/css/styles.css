@@ -2,20 +2,19 @@
   margin-bottom: 20px;
 }
 
-/*# sourceMappingURL=styles.css.map */
-
 .jumbotron {
   max-height: 360px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-#Checkout{
+#Checkout {
   text-align: right;
-  
 }
 
-#price{
+#price {
   display: inline-block;
 }
+
+/*# sourceMappingURL=styles.css.map */
