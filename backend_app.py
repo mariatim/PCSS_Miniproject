@@ -19,7 +19,7 @@ def get_product():
 @app.route('/get/allproducts/', methods=['GET'])
 def get_all_products():
     response = json.dumps([p.toJson() for p in products])
-    return "getAllCallback(" + response + ")"
+    return response
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
 def put_order():
