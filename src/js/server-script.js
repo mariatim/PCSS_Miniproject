@@ -26,14 +26,20 @@ function getAllCallback(response) {
 
     // Fill the HTML
     products.forEach(element => {
+        console.log(element.available);
+        if (element.tickets == 0){
+            availableHTML = `<a href="#" class="btn btn-secondary cartButton disabled" id="` + element.id + `">Sold out</a>`;
+        } else {
+            availableHTML = `<a href="#" class="btn btn-primary cartButton" onclick="cartButtonClick(event)" id="` + element.id + `">Add to cart</a>`;
+        }
         $("#fillHere").append(
             `<div class="col-lg-4 col-md-6 col-12">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">` + element.name + `</h5>
                             <p class="card-text">` + element.description + `</p>
-                            <b style="float: right;">` + element.price + ` kr.</b>
-                            <a href="#" class="btn btn-primary cartButton" onclick="cartButtonClick(event)" id="` + element.id + `">Add to cart</a>
+                            <b style="float: right;">` + element.price + ` kr.</b>` + 
+                            availableHTML + `
                         </div>
                     </div>
                 </div>`);

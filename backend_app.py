@@ -23,9 +23,6 @@ def get_all_products():
 
 @app.route('/put/order/', methods=['GET', 'PUT', 'POST'])
 def put_order():
-    print(request.is_json)
-    print(type(request))
-    print(request.form)
     parameter = request.args["products"]
     orders.append(Order(len(orders), parameter))
     return parameter

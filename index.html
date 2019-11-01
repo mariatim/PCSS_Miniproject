@@ -27,9 +27,9 @@
             <div class="col">
                 <div class="jumbotron" id="shoppingcart">
                         <!-- jumbotron for the cart -->
-                    <h1 class="display-4" id="price">Such empty!
-                    </h1>
+                    <h1 class="display-4" id="price">Such empty!</h1>
                         <!-- Checkout button -->
+                    <br>
                     <a href="#" class="badge badge-success badge-pill" id="Checkout" onclick="checkout()">Checkout</a>
                     <a href="#" class="badge badge-danger badge-pill" onclick="reload()">Delete All</a>
                     <p id="cartGuide">Add products to your Cart</p>
@@ -46,7 +46,7 @@
         var products = [];
         var order = [];
 
-        // Define a Product (will be a part of the back-end later)
+        // Define a Product
         class Product {
             constructor(_id, _name, _price, _description, _tickets) {
                 this.id = _id;
@@ -54,7 +54,7 @@
                 this.price = _price;
                 this.description = _description;
                 this.tickets = _tickets;
-                this.available = this.tickets == 0 ? true : false;
+                this.available = this.tickets != 0 ? true : false;
             }
         }
     </script>
