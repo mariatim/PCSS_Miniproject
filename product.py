@@ -10,30 +10,6 @@ class Product():
         self.description = _description
         self.tickets = _tickets
 
-    def setId(self, _id):
-        self.id = _id
-
-    def getId(self):
-        return self.id
-
-    def setName(self, _name):
-        self.name = _name
-
-    def getName(self):
-        return self.name
-
-    def setPrice(self, _price):
-        self.price = _price
-
-    def getPrice(self):
-        return self.price
-
-    def setDescription(self, _description):
-        self.description = _description
-
-    def getDescription(self):
-        return self.description
-
     def toJson(self):
         return json.dumps(self.__dict__)
 
