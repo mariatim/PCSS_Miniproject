@@ -2,8 +2,7 @@
 
 # About
 
-This is a student project for AAU Medialogy Semester 3 Programing for Complex Software Systems. It explores client-server architecture and how they interact with the use of an API. The Backend built in Python supplied with a pre-made database. The Frontend is built in Visual Studio using HTML and CSS.
-
+This program is a ticket-ordering application that allows users to pick, select, buy or delete tickets from their shopping cart. It is a student project for AAU Medialogy Semester 3 Programing for Complex Software Systems. It explores client-server architecture and how they interact with the use of an API. The Backend built in Python supplied with a pre-made database. The Frontend is built in Visual Studio using HTML and CSS. 
 
 # Instructions
 
