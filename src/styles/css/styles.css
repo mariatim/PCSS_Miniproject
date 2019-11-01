@@ -1,0 +1,20 @@
+.card {
+  margin: 20px 0px;
+}
+
+.jumbotron {
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+#Checkout {
+  text-align: right;
+}
+
+#price {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=styles.css.map */

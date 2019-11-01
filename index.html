@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy tickets</title>
+
+    <!-- Local CSS stylesheet file -->
+    <link rel="stylesheet" type="text/css" href="src/styles/css/styles.css">
+
+    <!-- Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="src/js/server-script.js"></script>
+    <script src="src/js/script.js"></script>
+    <script src="src/js/jquery.ajax-cross-origin.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="img/festival.jpg" title="Photo by Danny Howe on Unsplash" class="img-fluid">   
+            </div>
+            <div class="col">
+                <div class="jumbotron" id="shoppingcart">
+                        <!-- jumbotron for the cart -->
+                    <h1 class="display-4" id="price">Such empty!</h1>
+                        <!-- Checkout button -->
+                    <br>
+                    <a href="#" class="badge badge-success badge-pill" id="Checkout" onclick="checkout()">Checkout</a>
+                    <a href="#" class="badge badge-danger badge-pill" onclick="reload()">Delete All</a>
+                    <p id="cartGuide">Add products to your Cart</p>
+                    <ul id="cart" class="list-group list-group-flush"> </ul>
+                </div>
+            </div>  
+        </div>
+
+        <div class="row" id="fillHere"> </div>
+    </div>
+    
+    <!-- JS/jQuery part -->
+    <script>
+        var products = [];
+        var order = [];
+
+        // Define a Product
+        class Product {
+            constructor(_id, _name, _price, _description, _tickets) {
+                this.id = _id;
+                this.name = _name;
+                this.price = _price;
+                this.description = _description;
+                this.tickets = _tickets;
+                this.available = this.tickets != 0 ? true : false;
+            }
+        }
+    </script>
+</body>
+</html>
