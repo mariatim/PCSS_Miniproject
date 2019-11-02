@@ -6,7 +6,7 @@ This program is a ticket-ordering application that allows users to pick, select,
 
 # Instructions
 
-Download the repository. To use, run the backend_app.py (need to have Python 3 and Flask installed). Run the index.html on the localhost.
+Download the repository. To use, run the backend_app.py (need to have Python 3 and Flask installed). Run the index.html on the localhost port 5000.
 (We used Visual Studio to simulate the client.)
 
 # Implementation
